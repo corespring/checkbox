@@ -59,7 +59,7 @@
           return value ? trueValue : falseValue;
         });
 
-        updateChecked(scope, element);
+        updateChecked($scope, $element);
       }
       
       /**
