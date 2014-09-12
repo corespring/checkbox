@@ -78,10 +78,12 @@
       
       $attr.$observe('checked', function() {
         $scope.checked = !!$element.attr('checked');
+        updateChecked($scope, $element);
       });
       
       $attr.$observe('disabled', function() {
         $scope.disabled = !!$element.attr('disabled');
+        updateChecked($scope, $element);
       });
 
       if (ctrls[0]) {
