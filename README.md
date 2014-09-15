@@ -2,6 +2,8 @@
 
 A substitute for `input[type=checkbox]` that can be styled across all browsers.
 
+[![Build Status](https://travis-ci.org/corespring/checkbox.svg)](https://travis-ci.org/corespring/checkbox)
+
 ### Directive Info
 
 This directive executes at priority level 0.
