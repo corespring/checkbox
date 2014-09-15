@@ -118,6 +118,6 @@
     }
   }
 
-  angular.module('corespring.input', []).directive('checkbox', Checkbox);
+  angular.module('corespring.input.checkbox', []).directive('checkbox', Checkbox);
   
 })();

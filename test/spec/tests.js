@@ -2,7 +2,7 @@ describe('checkbox', function() {
 
   var compile, rootScope;
 
-  beforeEach(module('corespring.input'));
+  beforeEach(module('corespring.input.checkbox'));
 
   beforeEach(inject(function($compile, $rootScope) {
     compile = $compile;
