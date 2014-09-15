@@ -1,6 +1,6 @@
 {
   "name": "corespring-checkbox",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "An AngularJS directive to replace input[type=checkbox] so that it can be styled across browsers.",
   "author": "https://github.com/corespring/checkbox/contributors",
   "license": "MIT",
