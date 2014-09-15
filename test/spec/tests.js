@@ -48,6 +48,19 @@ describe('checkbox', function() {
       element.click();
       expect($('.checkbox-toggle', element).hasClass('checked')).toBe(false);
     });
+    
+    it('adds "checked" class to .label-text when it has been checked', function() {
+      var element = compile("<checkbox></checkbox>")(rootScope.$new());
+      element.click();
+      expect($('.label-text', element).hasClass('checked')).toBe(true);
+    });
+
+    it('removes "checked" class from .label-text when it has been unchecked', function() {
+      var element = compile("<checkbox></checkbox>")(rootScope.$new());
+      element.click();
+      element.click();
+      expect($('.label-text', element).hasClass('checked')).toBe(false);
+    });
 
   });
 
@@ -85,6 +98,24 @@ describe('checkbox', function() {
       element.click();
       expect($('.checkbox-toggle', element).hasClass('checked')).toBe(true);
     });
+    
+    
+    it('adds "disabled" class to .label-text when it has been disabled', function() {
+      var scope = rootScope.$new();
+      scope.isDisabled = true;
+      var element = compile("<checkbox ng-disabled='isDisabled'></checkbox>")(scope);
+      scope.$digest();
+      expect($('.label-text', element).hasClass('disabled')).toBe(true);
+    });
+
+    it('adds "disabled" class to .checkbox-toggle when it has been disabled', function() {
+      var scope = rootScope.$new();
+      scope.isDisabled = true;
+      var element = compile("<checkbox ng-disabled='isDisabled'></checkbox>")(scope);
+      scope.$digest();
+      expect($('.checkbox-toggle', element).hasClass('disabled')).toBe(true);
+    });
+
 
   });
 

@@ -112,7 +112,7 @@
       template: [
         '<div class="checkbox-input">',
         '  <div class="checkbox-toggle" ng-class="{\'checked\': checked, \'disabled\': disabled}"/>',
-        '  <span class="label-text" ng-transclude/>',
+        '  <span class="label-text" ng-class="{\'checked\': checked, \'disabled\': disabled}" ng-transclude/>',
         '</div>'
       ].join('')
     }
