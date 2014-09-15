@@ -131,8 +131,8 @@ describe('checkbox', function() {
 
     it('should initialize the checkbox to be disabled when true', function() {
       var scope = rootScope.$new();
-      scope.disabled = true;
-      var element = compile("<checkbox ng-disabled='disabled'></checkbox>")(scope);
+      scope.isDisabled = true;
+      var element = compile("<checkbox ng-disabled='isDisabled'></checkbox>")(scope);
       scope.$digest();
       expect(element.attr('disabled')).toBeDefined();
       expect(element.attr('disabled')).toBe('disabled');
