@@ -98,10 +98,11 @@ describe('checkbox', function() {
       expect($('.checkbox-toggle', element).hasClass('checked')).toBe(false);
     });
 
-    xit('should initialize boolean true to checked', function() {
+    it('should initialize boolean true to checked', function() {
       var scope = rootScope.$new();
       scope.value = true;
       var element = compile("<checkbox ng-model='value'></checkbox>")(scope);
+      scope.$digest();
       expect(element.attr('checked')).toBeDefined();
       expect(element.attr('checked')).toBe('checked');
       expect($('.checkbox-toggle', element).hasClass('checked')).toBe(true);
@@ -128,10 +129,11 @@ describe('checkbox', function() {
 
   describe('ngDisabled', function() {
 
-    xit('should initialize the checkbox to be disabled when true', function() {
+    it('should initialize the checkbox to be disabled when true', function() {
       var scope = rootScope.$new();
       scope.disabled = true;
       var element = compile("<checkbox ng-disabled='disabled'></checkbox>")(scope);
+      scope.$digest();
       expect(element.attr('disabled')).toBeDefined();
       expect(element.attr('disabled')).toBe('disabled');
     });

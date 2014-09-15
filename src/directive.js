@@ -58,8 +58,16 @@
         $ctrl.$parsers.push(function(value) {
           return value ? trueValue : falseValue;
         });
-
-        updateChecked($scope, $element);
+        
+        $scope.$watch($attr.ngModel, function() {
+          if ($ctrl.$viewValue === trueValue) {
+            $element.attr('checked', 'checked');
+          } else {
+            $element.removeAttr('checked');
+          }
+          updateChecked($scope, $element);
+        });
+        
       }
       
       /**
@@ -91,6 +99,7 @@
       } else {
         simulateNativeCheckbox($scope, $element, $attr);
       }
+      updateChecked($scope, $element);
     }
 
     return {
