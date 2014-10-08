@@ -6,6 +6,8 @@
 
     function link($scope, $element, $attr, ctrls) {
       
+      $scope.model = {};
+      
       /**
        * Updates the provided element's checked property to be 'checked' if not defined, otherwise defines it as
        * 'checked'.
@@ -22,8 +24,8 @@
       }
       
       function updateChecked($scope, $element) {
-        $scope.checked = $element.attr('checked') === 'checked';
-        $scope.disabled = $element.attr('disabled') === 'disabled';
+        $scope.model.checked = $element.attr('checked') === 'checked';
+        $scope.model.disabled = $element.attr('disabled') === 'disabled';
       }
       
       function ngModelLink($scope, $element, $attr, $ctrl) {
@@ -85,12 +87,12 @@
       };
       
       $attr.$observe('checked', function() {
-        $scope.checked = !!$element.attr('checked');
+        $scope.model.checked = !!$element.attr('checked');
         updateChecked($scope, $element);
       });
       
       $attr.$observe('disabled', function() {
-        $scope.disabled = !!$element.attr('disabled');
+        $scope.model.disabled = !!$element.attr('disabled');
         updateChecked($scope, $element);
       });
 
@@ -111,8 +113,8 @@
       link: link,
       template: [
         '<div class="checkbox-input">',
-        '  <div class="checkbox-toggle" ng-class="{\'checked\': checked, \'disabled\': disabled}"/>',
-        '  <span class="label-text" ng-class="{\'checked\': checked, \'disabled\': disabled}" ng-transclude/>',
+        '  <div class="checkbox-toggle" ng-class="{\'checked\': model.checked, \'disabled\': model.disabled}"/>',
+        '  <span class="label-text" ng-class="{\'checked\': model.checked, \'disabled\': model.disabled}" ng-transclude/>',
         '</div>'
       ].join('')
     }
