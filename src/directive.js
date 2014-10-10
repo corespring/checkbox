@@ -110,6 +110,7 @@
       transclude: true,
       priority: 0,
       require: ['?ngModel'],
+      scope: {},
       link: link,
       template: [
         '<div class="checkbox-input">',
