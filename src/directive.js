@@ -46,6 +46,12 @@
 
         $ctrl.$render = function() {
           $element[0].checked = $ctrl.$viewValue;
+          if ($ctrl.$viewValue === trueValue) {
+            $element.attr('checked', 'checked');
+          } else {
+            $element.removeAttr('checked');
+          }
+          updateChecked($scope, $element);
         };
 
         // Override the standard `$isEmpty` because a value of `false` means empty in a checkbox.

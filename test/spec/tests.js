@@ -156,6 +156,18 @@ describe('checkbox', function() {
       expect(scope.value).toBe(false);
     });
 
+    it('should update when model changes to true', function() {
+      var scope = rootScope.$new();
+      scope.some = {value: false};
+      scope.$digest();
+      var element = compile("<checkbox ng-model='some.value'></checkbox>")(scope);
+      scope.some.value = true;
+      scope.$digest();
+      console.log($(element).html());
+      expect($('.checkbox-toggle', element).hasClass('checked')).toBe(true);
+    });
+
+
   });
 
   describe('ngDisabled', function() {
